@@ -18,9 +18,12 @@ if (!$result) {
 }
 
 while ($row = pg_fetch_row($result)) {
-  echo "FirstName: $row[0]  LastName: $row[1]";
-  echo "<br />\n";
+  $r[]=$row;
+  $response= array("Result"=> 1,"Messages"=>$r);
 }
+
+$encoded = json_encode($response);
+header('Content-type: application/json');
+echo $encoded;
 pg_close($db_connection);
 ?>
-
