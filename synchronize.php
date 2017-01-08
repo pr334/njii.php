@@ -7,14 +7,14 @@ $db_connection = pg_connect("host=$host dbname=PQRS user=$username password=$pas
 
 if(!$db_connection)
 {
-	print "Not connected";
+	//print "Not connected";
 }
 
 $result = pg_query($db_connection, "SELECT FirstName, LastName FROM Patient");
 
 if (!$result) {
-  echo "An error occurred.\n";
-  exit;
+  //echo "An error occurred.\n";
+  //exit;
 }
 
 while ($row = pg_fetch_row($result)) {
